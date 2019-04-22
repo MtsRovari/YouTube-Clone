@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		46453CDB226C0E7000EDE6FB /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46453CDA226C0E7000EDE6FB /* MenuBar.swift */; };
+		46453CDE226D28D300EDE6FB /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46453CDD226D28D300EDE6FB /* Video.swift */; };
 		46B40A40226AE21B00C150D5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B40A3F226AE21B00C150D5 /* Extensions.swift */; };
 		46B40A43226AE34F00C150D5 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B40A42226AE34F00C150D5 /* VideoCell.swift */; };
 		46B8CF3C22663FD4002561D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B8CF3B22663FD4002561D2 /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		46453CDA226C0E7000EDE6FB /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		46453CDD226D28D300EDE6FB /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		46B40A3F226AE21B00C150D5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		46B40A42226AE34F00C150D5 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		46B8CF3822663FD4002561D2 /* YouTubeClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTubeClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46453CDC226D28C100EDE6FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				46453CDD226D28D300EDE6FB /* Video.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		46B40A3E226AE1EB00C150D5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +95,7 @@
 		46B8CF3A22663FD4002561D2 /* YouTubeClone */ = {
 			isa = PBXGroup;
 			children = (
+				46453CDC226D28C100EDE6FB /* Model */,
 				46B40A41226AE33300C150D5 /* View */,
 				46B40A44226AE3BD00C150D5 /* Controller */,
 				46B40A3E226AE1EB00C150D5 /* Helpers */,
@@ -169,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46B8CF3E22663FD4002561D2 /* HomeController.swift in Sources */,
+				46453CDE226D28D300EDE6FB /* Video.swift in Sources */,
 				46B40A43226AE34F00C150D5 /* VideoCell.swift in Sources */,
 				46B40A40226AE21B00C150D5 /* Extensions.swift in Sources */,
 				46B8CF3C22663FD4002561D2 /* AppDelegate.swift in Sources */,
