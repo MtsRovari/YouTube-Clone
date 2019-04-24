@@ -29,12 +29,12 @@ class VideoCell: BaseCell  {
     var video: Video? {
         didSet {
             titleLabel.text = video?.title
+            
+            setupThumbnailImage()
+            
             thumbnailImageView.image = UIImage(named: (video?.thumbnailImageName)!)
             
-            if let profileImageName = video?.channel?.profileImageName {
-                
-                userProfileImageView.image = UIImage(named: profileImageName)
-            }
+            setupProfileImage()
             
             if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
                 
@@ -44,6 +44,18 @@ class VideoCell: BaseCell  {
                 let subtitleText = "\(channelName) • \(numberFormatter.string(from: numberOfViews)!) • 2 months ago "
                 subtitleTextView.text = subtitleText
             }
+        }
+    }
+    
+    func setupProfileImage() {
+        if let profileImageUrl = video?.channel?.profileImageName {
+            userProfileImageView.loadImageUsingUrlString(urlString: profileImageUrl)
+        }
+    }
+    
+    func setupThumbnailImage() {
+        if let thumbnailImageUrl = video?.thumbnailImageName {
+            thumbnailImageView.loadImageUsingUrlString(urlString: thumbnailImageUrl)
         }
     }
     
@@ -60,6 +72,7 @@ class VideoCell: BaseCell  {
         imageView.image = UIImage(named : "nasa_icon")
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
