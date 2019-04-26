@@ -31,9 +31,6 @@ class VideoCell: BaseCell  {
             titleLabel.text = video?.title
             
             setupThumbnailImage()
-            
-            thumbnailImageView.image = UIImage(named: (video?.thumbnailImageName)!)
-            
             setupProfileImage()
             
             if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
@@ -59,16 +56,16 @@ class VideoCell: BaseCell  {
         }
     }
     
-    let thumbnailImageView: UIImageView = {
-        let imageView = UIImageView()
+    let thumbnailImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.image = UIImage(named : "dog_cover")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
     
-    let userProfileImageView: UIImageView = {
-        let imageView = UIImageView()
+    let userProfileImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.image = UIImage(named : "nasa_icon")
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
