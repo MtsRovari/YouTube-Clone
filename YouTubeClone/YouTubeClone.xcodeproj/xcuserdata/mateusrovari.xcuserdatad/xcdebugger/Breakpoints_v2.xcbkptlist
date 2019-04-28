@@ -10,13 +10,106 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YouTubeClone/View/MenuBar.swift"
-            timestampString = "578065345.2078429"
+            timestampString = "578186015.149397"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
             endingLineNumber = "62"
             landmarkName = "MenuBar"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YouTubeClone/Controller/HomeController.swift"
+            timestampString = "578186015.1494991"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "HomeController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; YouTubeClone.MenuBar in variable initialization expression of YouTubeClone.HomeController.menuBar : YouTubeClone.MenuBar"
+                  moduleName = "YouTubeClone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mateusrovari/XcodeProjects/XcodeProjectsGitHub/YouTube-Clone/YouTubeClone/YouTubeClone/Controller/HomeController.swift"
+                  timestampString = "578095929.652977"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "YouTubeClone.HomeController.menuBar.getter : YouTubeClone.MenuBar"
+                  moduleName = "YouTubeClone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mateusrovari/XcodeProjects/XcodeProjectsGitHub/YouTube-Clone/YouTubeClone/YouTubeClone/Controller/HomeController.swift"
+                  timestampString = "578095929.6575561"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "YouTubeClone.HomeController.init(collectionViewLayout: __C.UICollectionViewLayout) -&gt; YouTubeClone.HomeController"
+                  moduleName = "YouTubeClone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mateusrovari/XcodeProjects/XcodeProjectsGitHub/YouTube-Clone/YouTubeClone/YouTubeClone/Controller/HomeController.swift"
+                  timestampString = "578095929.662034"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "159">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "YouTubeClone.HomeController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; YouTubeClone.HomeController"
+                  moduleName = "YouTubeClone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mateusrovari/XcodeProjects/XcodeProjectsGitHub/YouTube-Clone/YouTubeClone/YouTubeClone/Controller/HomeController.swift"
+                  timestampString = "578095929.665751"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "169">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "YouTubeClone.HomeController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;YouTubeClone.HomeController&gt;"
+                  moduleName = "YouTubeClone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mateusrovari/XcodeProjects/XcodeProjectsGitHub/YouTube-Clone/YouTubeClone/YouTubeClone/Controller/HomeController.swift"
+                  timestampString = "578095929.669448"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "146">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
