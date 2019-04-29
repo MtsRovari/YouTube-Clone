@@ -9,13 +9,22 @@
 import UIKit
 
 class Setting: NSObject {
-    let name: String
+    let name: SettingsName
     let imageName: String
     
-    init(name: String, imageName: String) {
+    init(name: SettingsName, imageName: String) {
         self.name = name
         self.imageName = imageName
     }
+}
+
+enum SettingsName: String {
+    case Settings = "Settings"
+    case TermsPrivacy = "Terms & privacy policy"
+    case SendFeedback = "Send Feedback"
+    case Help = "Help"
+    case SwitchAccount = "Switch Account"
+    case Cancel = "Cancel"
 }
 
 class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -34,7 +43,11 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     let cellHeight: CGFloat = 50
     
     let settings: [Setting] = {
-        return [Setting(name: "Settings", imageName: "settings"), Setting(name: "Terms & privacy policy", imageName: "privacy"), Setting(name: "Send Feedback", imageName: "feedback"), Setting(name: "Help", imageName: "help"), Setting(name: "Switch Account", imageName: "switch_account"), Setting(name: "Cancel", imageName: "cancel")]
+        
+        let settingsSettings = Setting(name: .Settings, imageName: "settings")
+        let cancelSettings = Setting(name: .Cancel, imageName: "cancel")
+        
+        return [Setting(name: .Settings, imageName: "settings"), Setting(name: .TermsPrivacy, imageName: "privacy"), Setting(name: .SendFeedback, imageName: "feedback"), Setting(name: .Help, imageName: "help"), Setting(name: .SwitchAccount, imageName: "switch_account"), cancelSettings]
     }()
     
     var homeController: HomeController?
@@ -67,7 +80,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     }
     
     @objc func handleCancel() {
-        handleDismiss(setting: settings.first { $0.name == "Cancel" }!)
+        handleDismiss(setting: settings.first { $0.name == .Cancel }!)
     }
     
     @objc func handleDismiss(setting: Setting) {
@@ -80,7 +93,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
                 self.collectionView.frame = CGRect.init(x: 0, y: window.frame.height, width: window.frame.width, height: window.frame.height)
             }
         }) {(completion: Bool) in
-            if setting.name != "Cancel" {
+            if setting.name != .Cancel {
                 self.homeController?.showControllerForSetting(setting: setting)
             }
         }
