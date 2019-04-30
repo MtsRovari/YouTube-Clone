@@ -10,76 +10,19 @@ import UIKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-//    var videos: [Video] = {
-//        var firstChannel = Channel()
-//        firstChannel.name = "NASA"
-//        firstChannel.profileImageName = "nasa_icon"
-//
-//        var secondChannel = Channel()
-//        secondChannel.name = "SpaceX"
-//        secondChannel.profileImageName = "spacex_icon"
-//
-//        var firstVideo = Video()
-//        firstVideo.title = "We are NASA"
-//        firstVideo.thumbnailImageName = "dog_cover"
-//        firstVideo.channel = firstChannel
-//        firstVideo.numberOfViews = 2.1
-//
-//        var secondVideo = Video()
-//        secondVideo.title = "Falcon Heavy Test Flight Dec 2018 to Mars from Earth"
-//        secondVideo.thumbnailImageName = "falcon_cover"
-//        secondVideo.channel = secondChannel
-//        secondVideo.numberOfViews = 987
-//
-//        return [firstVideo, secondVideo]
-//    }()
+    // only to keep lightContent style on swipe
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     var videos: [Video]?
     
     func fetchVideos() {
-        let url = URL(string: "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json")
-        URLSession.shared.dataTask(with: url!) { (data, response, error) in
-            
-            if error != nil {
-                print(error)
-                return
-            }
-            
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
-                
-                self.videos = [Video]()
-                
-                for dictionary in json as! [[String: AnyObject]] {
-                    
-                    let video = Video()
-                    video.title = dictionary["title"] as? String
-                    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
-                    
-                    let channelDictionary = dictionary["channel"] as! [String: AnyObject]
-                    
-                    let channel = Channel()
-                    channel.name = channelDictionary["name"] as? String
-                    channel.profileImageName = channelDictionary["profile_image_name"] as? String
-                    
-                    video.channel = channel
-                    
-                    self.videos?.append(video)
-                    
-                }
-                
-                DispatchQueue.main.async {
-                    self.collectionView?.reloadData()
-                }
-                
-            } catch let jsonError {
-                print(jsonError)
-            }
-            
-            let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            print(str)
-            
-        }.resume()
+        ApiService.sharedInstance.fetchVideos { (videos: [Video]) in
+
+            self.videos = videos
+            self.collectionView?.reloadData()
+        }
     }
 
     override func viewDidLoad() {
@@ -147,9 +90,19 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }()
     
     private func setupMenuBar() {
+        navigationController?.hidesBarsOnSwipe = true
+        
+        let redView = UIView()
+        redView.backgroundColor = UIColor.rgb(red: 230, green: 32, blue: 31)
+        view.addSubview(redView)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: redView)
+        view.addConstraintsWithFormat(format: "V:|[v0(50)]", views: redView)
+        
         view.addSubview(menuBar)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: menuBar)
-        view.addConstraintsWithFormat(format: "V:|[v0(50)]", views: menuBar)
+        view.addConstraintsWithFormat(format: "V:[v0(50)]", views: menuBar)
+        
+        menuBar.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
