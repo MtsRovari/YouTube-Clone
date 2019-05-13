@@ -62,14 +62,33 @@ class VideoPlayerView: UIView {
         return label
     }()
     
-    let videoSlider: UISlider = {
+    lazy var videoSlider: UISlider = {
         let slider = UISlider()
         slider.translatesAutoresizingMaskIntoConstraints = false
         slider.minimumTrackTintColor = UIColor.red
         slider.maximumTrackTintColor = UIColor.white
 //        slider.setThumbImage(UIImage(named: ""), for: .normal)
+        
+        slider.addTarget(self, action: #selector(handleSliderChange), for: .valueChanged)
+        
         return slider
     }()
+    
+    @objc func handleSliderChange() {
+        
+        if let duration = player?.currentItem?.duration {
+            let totalSeconds = CMTimeGetSeconds(duration)
+            
+            let value = Float64(videoSlider.value) * totalSeconds
+            
+            let seekTime = CMTime(seconds: value, preferredTimescale: 1)
+            
+            player?.seek(to: seekTime, completionHandler: { (completedSeek) in
+                
+                // perhaps do something later here
+            })
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -137,9 +156,10 @@ class VideoPlayerView: UIView {
              
                 let seconds = CMTimeGetSeconds(duration)
                 
-                let secondsText = seconds % 60
+                let secondsText = Int(seconds) % 60
+                let minutesText = String(format: "%02d", Int(seconds) / 60)
                 
-                videoLengthLabel.text = "00:\(secondsText)"
+                videoLengthLabel.text = "\(minutesText):\(secondsText)"
             }
         }
     }
