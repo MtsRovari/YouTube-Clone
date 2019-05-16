@@ -156,6 +156,26 @@ class VideoPlayerView: UIView {
             
             player?.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil)
             
+            //track player progress
+            let interval = CMTime(value: 1, timescale: 2)
+            player?.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { (progressTime) in
+                
+                let seconds = CMTimeGetSeconds(progressTime)
+                
+                let secondsString = String(format: "%02d", Int(seconds) % 60)
+                let minutesText = String(format: "%02d", Int(seconds) / 60)
+                
+                self.currentTimeLabel.text = "\(minutesText):\(secondsString)"
+                
+                //move the slider thumb
+                if let duration = self.player?.currentItem?.duration {
+                    
+                    let durationSeconds = CMTimeGetSeconds(duration)
+                    
+                    self.videoSlider.value = Float(seconds / durationSeconds)
+                }
+            })
+            
             player?.play()
         }
     }
